@@ -5,6 +5,7 @@
     이름: 이설아
     과제주제: 사용자가 OTT에서 영화나 TV 프로그램을 선택하는 데 어려움을 겪지 않도록, 시스템이 자동으로 추천을 해줍니다. 사용자가 영화를 시작하면, 일정 시간(예: 10분) 동안 해당 콘텐츠를 시청하고, 그 후 "계속 시청할지" 여부를 선택하게 하는 방식입니다.
 */ 
+
 #include <iostream>
 #include <vector>
 #include "RecommendationSystem.h"
@@ -16,7 +17,7 @@ void watchFor10Minutes() {
 }
 
 int main() {
-    // 영화 목록 로딩
+    // RecommendationSystem 객체 생성
     std::vector<Movie*> movies;
     try {
         FileManager::loadMoviesFromFile(movies);
@@ -25,7 +26,7 @@ int main() {
         return 1;
     }
 
-    // 추천 시스템 설정
+    // 영화 객체 생성
     RecommendationSystem recommender;
     for (auto movie : movies) {
         recommender.addMovie(movie);
